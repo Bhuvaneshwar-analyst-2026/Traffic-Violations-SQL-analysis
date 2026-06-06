@@ -1,95 +1,41 @@
-# DC Traffic Violations SQL Analysis
+<div align="center">
 
-## Project Overview
+# 🚦 DC Traffic Violations SQL Analysis
 
-Analyzed real Washington DC moving violation records alongside daily weather data to uncover patterns in traffic enforcement, violations, and weather correlation using MySQL, Python, and Pandas.
+[![SQL](https://img.shields.io/badge/SQL-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Python](https://img.shields.io/badge/Python-Pandas-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Tableau](https://img.shields.io/badge/Tableau-Dashboard-E97627?style=for-the-badge&logo=tableau&logoColor=white)](https://www.tableau.com/)
+[![University](https://img.shields.io/badge/University_of_Dayton-MIS_664A-red?style=for-the-badge)](https://www.udayton.edu/)
 
-**Course:** MIS 664A — Database Management Systems
-**Institution:** University of Dayton
-**Tools:** MySQL · Python · Pandas · SQLAlchemy · Matplotlib
+**Analyzing 500,000+ real Washington DC traffic violation records alongside daily weather data to uncover enforcement patterns, peak violation hours, and weather correlations.**
 
----
-
-## Datasets
-
-| Dataset | Source | Period |
-|---|---|---|
-| DC Moving Violations | Washington DC Open Data Portal | Aug–Nov 2024 |
-| DC Weather Data | Visual Crossing API | Sep 2024–Sep 2025 |
+</div>
 
 ---
 
-## Database Structure
+## 📌 Project Overview
 
-Two tables linked by date field:
+This project analyzes **real Washington DC moving violation records** alongside **daily weather data** to answer key business questions about traffic enforcement patterns, agency performance, and how weather conditions impact violations.
 
-**`moving_violations_raw`** — Each row = one traffic ticket
-- OBJECTID, ISSUE_DATE, ISSUE_TIME
-- ISSUING_AGENCY_NAME, VIOLATION_PROCESS_DESC
-- FINE_AMOUNT, ACCIDENT_INDICATOR
-- LATITUDE, LONGITUDE
-
-**`dc_weather_raw`** — Each row = one day of DC weather
-- datetime, temp, tempmax, tempmin
-- precip, precipprob, conditions
-- windspeed, humidity, cloudcover
-
----
-
-## SQL Analysis — 8 Key Questions
-
-| # | Business Question | SQL Technique |
-|---|---|---|
-| A | Tickets issued per agency per month | GROUP BY, DATE_FORMAT |
-| B | Tickets issued since October 1 2024 | WHERE date filter |
-| C | Average tickets by day of week | DAYNAME, COUNT/DISTINCT |
-| D | Tickets issued during rain | Subquery, date JOIN |
-| E | Total precipitation per month | SUM, DATE_FORMAT |
-| F | Speeding fines over 10mph per month | LIKE filter, SUM |
-| G | Average tickets by hour of day | FLOOR, LPAD, GROUP BY |
-| H | Accident tickets — rainy vs non-rainy | CASE WHEN, Correlated Subquery |
-
----
-
-## ETL Pipeline
-
-Built a full Python ETL pipeline using Pandas and SQLAlchemy:
-
-1. Read raw CSV files in chunks of 5000 rows
-2. Clean and format date and time columns
-3. Convert numeric fields with error handling
-4. Load into MySQL using to_sql with append mode
-5. Generate visualization using Matplotlib
-
----
-
-## Key Findings
-
-- Rainy weather correlates with higher accident related violations
-- Ticket issuance peaks during weekday morning rush hours
-- Multiple agencies show distinct monthly enforcement patterns
-- Speeding fines over 10mph generate significant monthly revenue
-
----
-
-## Files in This Repository
-
-| File | Description |
+| 📚 Course | MIS 664A — Database Management Systems |
 |---|---|
-| `Bhuvaneshwar_sql_project_Query.sql` | All 8 SQL queries and table creation scripts |
-| `Bhuvaneshwar_sql_project_code.py` | Python ETL pipeline — Pandas and SQLAlchemy |
-| `Bhuvaneshwar_sql_project_documentation.docx` | Full project documentation and analysis report |
+| 🏫 Institution | University of Dayton |
+| 👤 Author | Bhuvaneshwar Sannappareddy |
+| 🛠️ Tools | MySQL · Python · Pandas · SQLAlchemy · Matplotlib |
 
 ---
 
-## Skills Demonstrated
+## 📂 Datasets
 
-- SQL — Complex JOINs, Subqueries, CASE WHEN, GROUP BY, Date Functions
-- Python — Pandas, SQLAlchemy, Matplotlib, chunked CSV processing
-- ETL — Extract Transform Load pipeline design
-- Database Design — MySQL schema creation and optimization
-- Data Analysis — Weather correlation, time-series, agency benchmarking
+| Dataset | Source | Period | Records |
+|---|---|---|---|
+| 🚗 DC Moving Violations | Washington DC Open Data Portal | Aug–Nov 2024 | 500,000+ |
+| 🌦️ DC Weather Data | Visual Crossing API | Sep 2024–Sep 2025 | 365 days |
 
 ---
 
-> **Data Source:** Publicly available Washington DC Open Data portal and Visual Crossing weather API.
+## 🗄️ Database Structure
+
+Two tables linked by **date field** in `sql_project` database:
+
+### `moving_violations_raw` — One row per traffic ticket
