@@ -1,5 +1,3 @@
-<div align="center">
-
 # DC Traffic Violations SQL Analysis
 
 ## Project Overview
