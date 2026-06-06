@@ -4,12 +4,9 @@
 
 Analyzed **real Washington DC moving violation records** alongside daily weather data to uncover patterns in traffic enforcement, violations, and weather correlation using MySQL, Python, and Pandas.
 
-**Course:** MIS 664A — Database Management Systems
-
-**Institution:** University of Dayton
-
-**Author:** Bhuvaneshwar Sannappareddy
-
+**Course:** MIS 664A — Database Management Systems<br>
+**Institution:** University of Dayton<br>
+**Author:** Bhuvaneshwar Sannappareddy<br>
 **Tools:** MySQL · Python · Pandas · SQLAlchemy · Matplotlib
 
 ---
